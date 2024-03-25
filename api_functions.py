@@ -36,6 +36,8 @@ def connect_to_twitter():
         verifier=verifier,
     )
 
+    # Losowy komentarz
+
     oauth_tokens = oauth.fetch_access_token(access_token_url)
     access_token = oauth_tokens["oauth_token"]
     access_token_secret = oauth_tokens["oauth_token_secret"]
@@ -46,6 +48,7 @@ def connect_to_twitter():
         resource_owner_key=access_token,
         resource_owner_secret=access_token_secret,
     )
+
 
 
 
