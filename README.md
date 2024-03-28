@@ -1,4 +1,4 @@
-# twitter_bot
+# My first Twitter bot
 
 ## Project goal and overview
 That's me again! This time I decided to create a simple bot that should periodically gather air parameters data using [airly](https://airly.org/) API, briefly analyze it, store it in a database and finally post a summary tweet. I am also using Docker to containerize it and to place it on external server to run (the server to be chosen yet). 
