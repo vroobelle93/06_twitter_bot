@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    secrets:
+      - api_key
+      - api_key_secret
+
+secrets:
+  api_key:
+    file: ./secrets/api_key.txt
+  api_key_secret:
+    file: ./secrets/api_key_secret.txt
