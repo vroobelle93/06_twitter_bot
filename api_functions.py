@@ -1,11 +1,19 @@
-def connect_to_twitter():
+lines = "---------------------"
 
+def connect_to_twitter():
+    """
+    Connects to twitter API.
+    Returns: an oauth object needed to post a tweet.
+    """
+    
     # Imports 
     from requests_oauthlib import OAuth1Session
     import os
 
-    consumer_key = os.environ.get("CONSUMER_KEY")
-    consumer_secret = os.environ.get("CONSUMER_SECRET")
+    # Get api secrets
+    print("Getting secrets")
+    consumer_key = open("secrets/api_key.txt").read()
+    consumer_secret = open("secrets/api_key_secret.txt").read()
     request_token_url = "https://api.twitter.com/oauth/request_token?oauth_callback=oob&x_auth_access_type=write"
     oauth = OAuth1Session(consumer_key, client_secret=consumer_secret)
 
@@ -36,8 +44,7 @@ def connect_to_twitter():
         verifier=verifier,
     )
 
-    # Losowy komentarz
-
+    # Fetch access tokens
     oauth_tokens = oauth.fetch_access_token(access_token_url)
     access_token = oauth_tokens["oauth_token"]
     access_token_secret = oauth_tokens["oauth_token_secret"]
@@ -49,21 +56,28 @@ def connect_to_twitter():
         resource_owner_secret=access_token_secret,
     )
 
+    print(f"{lines}\nConnection succesful!\n{lines}")
+    print(f"\nType: {type(oauth)}")
+    # print(f"Length: {len(oauth)}\n")
+
+    return oauth
 
 
+def post_tweet(oauth_object, text):
 
-def post_tweet(text):
+    """
+    Posts a tweet if connection is already established
+    """
 
     payload = {"text": text}
-    response = oauth.post(
+    response = oauth_object.post(
         "https://api.twitter.com/2/tweets",
         json=payload,
     )
 
+    print("Response code: {}".format(response.status_code))
     if response.status_code != 201:
         raise Exception(
             "Request returned an error: {} {}".format(response.status_code, response.text)
         )
-    else: print("Twitt wysłany pomyślnie!")
-
-    print("Response code: {}".format(response.status_code))
+    else: print(f"\n{lines}\nTweet posted successfully!\n{lines}\n")
