@@ -15,3 +15,7 @@ This knowledge will be essential part of future bigger projects!
  - API,
  - External server use.
 
+<p align="center">
+  <img src="img/meme.jpg" alt="There should be a meme">
+</p>  
+
