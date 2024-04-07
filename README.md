@@ -20,6 +20,7 @@ This knowledge will be essential part of future bigger projects!
 </p>  
 
 
+Data powered by:
 <p align="center">
-  <img src="img/airly-1024.png" alt="Here should be airly logo" width=500>
+  <img src="img/airly-1024.png" alt="Here should be airly logo" width=400>
 </p> 
