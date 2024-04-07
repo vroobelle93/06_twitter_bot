@@ -16,6 +16,10 @@ This knowledge will be essential part of future bigger projects!
  - External server use.
 
 <p align="center">
-  <img src="img/meme.jpg" alt="There should be a meme" height=450>
+  <img src="img/meme.jpg" alt="Here should be a meme" height=450>
 </p>  
 
+
+<p align="center">
+  <img src="img/airly-1024.png" alt="Here should be airly logo" width=500>
+</p> 
